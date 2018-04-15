@@ -8,6 +8,8 @@ npm install --save solc
 ## To install web3 ganache-cli and mocha use
 npm install --save web3 ganache-cli mocha
 
+##To install hd wallet HDWalletProvider
+npm install truffle-hdwallet-provider 
 ## To compile contract use
 npm compile.js
 

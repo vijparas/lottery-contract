@@ -3,7 +3,7 @@ pragma solidity ^0.4.17;
 contract Lottery{
     address public manager;
     address[] public players;
-
+    address public lotteryWinner;
     function Lottery( ) public {
       // manager is intialized with address of person who has created contract
         manager=msg.sender;
@@ -22,6 +22,7 @@ contract Lottery{
    //Picking a winner by calling the random generator function and taking module of it with total players.
      uint winner=random()% players.length;
      players[winner].transfer(address(this).balance);
+     lotteryWinner=players[winner];
      // resetting the players array. new address[](0) represents that array is a dynamic array of type address
      // with total values 0.
      players=new address[](0);
@@ -38,5 +39,8 @@ contract Lottery{
 // This function return array of players.
  function getPlayers( ) public view returns(address[]){
      return players;
+ }
+ function displayWinner() public view returns(address){
+   return lotteryWinner;
  }
 }
